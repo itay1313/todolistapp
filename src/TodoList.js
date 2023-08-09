@@ -72,6 +72,7 @@ class TodoList extends React.Component {
   }
 
   render() {
+    const canProceed = this.state.current_value.trim() && this.state.current_description.trim();
     return (
       <Container>
         <Row>
@@ -99,29 +100,39 @@ class TodoList extends React.Component {
                     this.setState({ current_value: event.target.value });
                   }}
                 />
+
                 <label>And how you gonna do that?</label>
                 <textarea
-                  placeholder="task description"
-                  type="text"
+                  placeholder="Task description"
                   value={this.state.current_description}
                   onChange={(event) => {
                     this.setState({ current_description: event.target.value });
                   }}
                 />
+
+                {!canProceed && (
+                  <div style={{ color: 'red', marginTop: '10px' }}>
+                    Please provide text in both fields to proceed.
+                  </div>
+                )}
+
                 <Button
-                  onClick={() =>
-                    this.setState((prevState) => ({
-                      todos: prevState.todos.concat({
-                        title: this.state.current_value,
-                        description: this.state.current_description,
-                        completed: false,
-                      }),
-                      current_value: '',
-                      current_description: '',
-                    }))
-                  }
+                  onClick={() => {
+                    if (canProceed) {
+                      this.setState((prevState) => ({
+                        todos: prevState.todos.concat({
+                          title: this.state.current_value,
+                          description: this.state.current_description,
+                          completed: false,
+                        }),
+                        current_value: '',
+                        current_description: '',
+                      }));
+                    }
+                  }}
                   as="a"
                   variant="primary"
+                  disabled={!canProceed} // Disabling if either field is empty or contains only whitespace
                 >
                   Add item to list
                 </Button>
