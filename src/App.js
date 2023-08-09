@@ -1,5 +1,5 @@
 import React from "react";
-import './Styles.css'
+import './Styles.scss'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import TodoList from "./TodoList"
 import { Route, Routes } from "react-router-dom";
