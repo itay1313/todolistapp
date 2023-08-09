@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import AlwaysOpenExample from "./widgets/Accordion";
+import React, { useState } from 'react';
+import AlwaysOpenExample from './widgets/Accordion';
 
 const ComponentTest = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -9,7 +9,11 @@ const ComponentTest = () => {
   }
 
   return (
-    <div gap={2} class="alert alert-danger alert-dismissible fade show" role="alert">
+    <div
+      gap={2}
+      class="alert alert-danger alert-dismissible fade show"
+      role="alert"
+    >
       <AlwaysOpenExample />
       <br />
       <strong>Oh snap! You got an error!</strong>
@@ -24,7 +28,7 @@ const ComponentTest = () => {
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-  )
-}
+  );
+};
 
-export default ComponentTest
+export default ComponentTest;
