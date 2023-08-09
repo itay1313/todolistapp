@@ -40,7 +40,7 @@ class TodoList extends React.Component {
     }
 
     axios
-      .get('http://localhost:4000/todos/1') // Adjust the id as needed
+      .get('http://localhost:4000/1') // Adjust the id as needed
       .then((response) => {
         const todoData = response.data;
         if (

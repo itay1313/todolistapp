@@ -21,7 +21,7 @@ const todos = [
 ];
 
 // Routes
-app.get('/todos/:id', (req, res) => {
+app.get('/:id', (req, res) => {
   const todo = todos.find((t) => t.id === Number(req.params.id));
   if (todo) {
     res.json(todo);

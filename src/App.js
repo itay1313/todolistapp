@@ -10,7 +10,7 @@ const App = () => {
     <React.Fragment>
       <Navigation />
       <Routes>
-        <Route path="/todos" element={<TodoList />} />
+        <Route path="/" element={<TodoList />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
     </React.Fragment>
