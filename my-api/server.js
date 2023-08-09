@@ -13,8 +13,8 @@ app.use(bodyParser.json());
 const todos = [
   {
     id: 1,
-    title: 'Sample Todo',
-    description: 'This is a sample todo item',
+    title: 'Get back in shape',
+    description: 'go to a fuc#$@ gym',
     completed: false,
   },
   // Add more todos as needed

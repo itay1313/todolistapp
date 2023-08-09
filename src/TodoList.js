@@ -33,22 +33,42 @@ class TodoList extends React.Component {
   }
 
   componentDidMount() {
+    // Load todos from localStorage first
+    const savedTodos = localStorage.getItem('todos');
+    if (savedTodos) {
+      this.setState({ todos: JSON.parse(savedTodos) });
+    }
+
     axios
       .get('http://localhost:4000/todos/1') // Adjust the id as needed
       .then((response) => {
         const todoData = response.data;
-        this.setState({
-          todos: [
-            {
-              id: todoData.id,
-              title: todoData.title,
-              description: todoData.description,
-              complete: todoData.completed,
-            },
-          ],
-        });
+        if (
+          !savedTodos ||
+          (savedTodos &&
+            !JSON.parse(savedTodos).some((todo) => todo.id === todoData.id))
+        ) {
+          this.setState((prevState) => ({
+            todos: [
+              ...prevState.todos,
+              {
+                id: todoData.id,
+                title: todoData.title,
+                description: todoData.description,
+                complete: todoData.completed,
+              },
+            ],
+          }));
+        }
       })
       .catch((error) => console.log(error));
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    // Check if the todos have changed, and if so, save them to localStorage
+    if (JSON.stringify(prevState.todos) !== JSON.stringify(this.state.todos)) {
+      localStorage.setItem('todos', JSON.stringify(this.state.todos));
+    }
   }
 
   render() {
