@@ -111,7 +111,7 @@ class TodoList extends React.Component {
                 />
 
                 {!canProceed && (
-                  <div style={{ color: 'red', marginTop: '10px' }}>
+                  <div style={{ color: 'red', }}>
                     Please provide text in both fields to proceed.
                   </div>
                 )}
@@ -132,6 +132,7 @@ class TodoList extends React.Component {
                   }}
                   as="a"
                   variant="primary"
+                  className='my-3'
                   disabled={!canProceed} // Disabling if either field is empty or contains only whitespace
                 >
                   Add item to list
