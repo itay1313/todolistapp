@@ -13,8 +13,8 @@ app.use(bodyParser.json());
 const todos = [
   {
     id: 1,
-    title: 'Get back in shape',
-    description: 'go to a fuc#$@ gym',
+    title: 'you are using the free version',
+    description: 'Buy TooDoo',
     completed: false,
   },
   // Add more todos as needed

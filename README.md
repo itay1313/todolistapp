@@ -54,15 +54,12 @@ Your application will be accessible at [http://localhost:3000](http://localhost:
 ## Features
 
 - **Add Tasks**: Quickly add tasks with a title and description.
-  
 - **Mark as Complete**: Strike through tasks as you complete them.
-  
 - **Responsive Design**: Looks and works seamlessly on both desktop and mobile devices.
 
 ## Further Resources
 
 - [React Official Documentation](https://reactjs.org/)
-  
 - [Bootstrap Documentation](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
 
 ## Contributing
